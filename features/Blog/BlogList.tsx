@@ -14,7 +14,7 @@ interface BlogListProps {
 
 
 const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
-console.log(blogs);
+// console.log(blogs);
 
   // ✅ filter only blogs category
   const filteredBlogs = blogs.filter((blog) =>
