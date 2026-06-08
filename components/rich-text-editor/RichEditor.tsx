@@ -6,6 +6,14 @@ import { useEditor, EditorContent, JSONContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
+import Link from "@tiptap/extension-link";
+import Underline from "@tiptap/extension-underline";
+import Placeholder from "@tiptap/extension-placeholder";
+import CharacterCount from "@tiptap/extension-character-count";
+import Image from "@tiptap/extension-image";
+import Color from "@tiptap/extension-color";
+import { TextStyle } from "@tiptap/extension-text-style";
+
 import MenuBar from "./MenuBar";
 
 interface RichEditorProps {
@@ -24,28 +32,44 @@ const RichEditor: React.FC<RichEditorProps> = ({
   defaultValue,
 }) => {
   const editor = useEditor({
-    extensions: [
-      StarterKit.configure({
-        bulletList: {
-          HTMLAttributes: {
-            class: "list-disc ml-5",
-          },
-        },
-        orderedList: {
-          HTMLAttributes: {
-            class: "list-decimal ml-5",
-          },
-        },
-      }),
-      TextAlign.configure({
-        types: ["heading", "paragraph"],
-      }),
-      Highlight.configure({
-        HTMLAttributes: {
-          class: "my-custom-class",
-        },
-      }),
-    ],
+   extensions: [
+  StarterKit.configure({
+    bulletList: {
+      HTMLAttributes: {
+        class: "list-disc ml-5",
+      },
+    },
+    orderedList: {
+      HTMLAttributes: {
+        class: "list-decimal ml-5",
+      },
+    },
+  }),
+
+  TextAlign.configure({
+    types: ["heading", "paragraph"],
+  }),
+
+  Highlight,
+
+  Underline,
+
+  Link.configure({
+    openOnClick: false,
+  }),
+
+  Image,
+
+  TextStyle,
+
+  Color,
+
+  CharacterCount,
+
+  Placeholder.configure({
+    placeholder: "Start writing your blog content...",
+  }),
+],
     content: (() => {
       if (!defaultValue) {
         return {
@@ -66,7 +90,7 @@ const RichEditor: React.FC<RichEditorProps> = ({
     editorProps: {
       attributes: {
         class: clsx(
-          "min-h-[150px] border rounded-md bg-slate-50 py-2 px-3",
+     "min-h-[500px] border rounded-xl bg-white px-6 py-5 focus:outline-none",
           "[&>h1]:text-4xl [&>h2]:text2xl [&>h3]:text-xl [&>h1,h2,h3]:font-bold",
         ),
       },
@@ -83,6 +107,17 @@ const RichEditor: React.FC<RichEditorProps> = ({
     <div className={clsx("rich-editorjs max-w-[800px]", className)}>
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
+      <div className="mt-2 flex justify-between text-sm text-gray-500">
+  <span>
+    {editor?.storage.characterCount.words() || 0} words
+  </span>
+
+  <span>
+    {Math.ceil(
+      (editor?.storage.characterCount.words() || 0) / 200
+    )} min read
+  </span>
+</div>
     </div>
   );
 };
