@@ -10,11 +10,11 @@ const reqs = [
 const Hero = () => {
   return (
     <div className="relative flex h-screen w-screen justify-center md:items-center">
-      <Image
-        src="/Botpipesimages.png"
-        alt="hero-image"
-        className="absolute top-0 left-0 h-full w-full object-left md:object-center mt-10 pt-10"
-      />
+     <Image
+  src="/Botpipesimages.png"
+  alt="hero-image"
+  className="absolute inset-0 w-full h-full object-cover object-top"
+/>
 
       <div className="font-anek relative z-5 mx-auto flex max-w-[70rem] flex-col justify-between px-4 pt-22 pb-15 md:pt-0 md:pb-0">
         <h1 className="mb-8 text-5xl font-bold text-white uppercase md:text-center md:text-6xl text-shadow-black text-shadow-md">
