@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className="relative flex h-screen w-screen justify-center md:items-center">
       <Image
-        src="/BotPipesImages.webp"
+        src="/Botpipesimages.png"
         alt="hero-image"
         className="absolute top-0 left-0 h-full w-full object-left md:object-center mt-10 pt-10"
       />
