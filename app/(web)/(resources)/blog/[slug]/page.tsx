@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import BlogDetails from "@/features/Blog/BlogDetails";
 import { getBlogBySlug } from "@/lib/firebase/firestore/blogs";
 import { notFound } from "next/navigation";

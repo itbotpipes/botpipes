@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import Hero from "@/components/Hero";
 import BlogList from "@/features/Blog/BlogList";
 import { getBlogs } from "@/lib/firebase/firestore/blogs";
