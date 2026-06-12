@@ -7,7 +7,7 @@ interface BlogPageProps {
     slug: string;
   }>;
 }
-export const runtime = "edge";
+
 export default async function BlogDetailPage({ params }: BlogPageProps) {
   const { slug } = await params; // REQUIRED in Next 15
 
