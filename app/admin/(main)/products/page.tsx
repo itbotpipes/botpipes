@@ -3,6 +3,8 @@ import ProductList from "@/features/Admin/Product/Table/ProductList";
 import Link from "next/link";
 import React from "react";
 
+export const runtime = 'edge';
+
 function ProductsPage() {
   return (
     <div>

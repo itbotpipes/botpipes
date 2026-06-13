@@ -3,6 +3,8 @@ import CategoryList from "@/features/Admin/Categories/Table/CategoryList";
 import Link from "next/link";
 import React from "react";
 
+export const runtime = 'edge';
+
 function Category() {
   return (
     <div>

@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import TestimonialList from "@/features/Admin/Testimonial/Table/TestimonialList";
 
+export const runtime = 'edge';
+
 function Testimonial({}: PageProps<"/admin/testimonials">) {
   return (
     <div>

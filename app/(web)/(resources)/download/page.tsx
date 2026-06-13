@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import React from "react";
 import DownloadPage from "@/features/Download/download";
 
+export const runtime = 'edge';
+
 // TODO: Build download page
 function Download() {
   return (

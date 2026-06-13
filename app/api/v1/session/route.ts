@@ -1,5 +1,7 @@
 import { cookies } from "next/headers";
 
+export const runtime = 'edge';
+
 export async function POST(request: Request) {
   const { idToken } = await request.json();
 
