@@ -1,6 +1,7 @@
 import BlogDetails from "@/features/Blog/BlogDetails";
 import { getBlogBySlug } from "@/lib/firebase/firestore/blogs";
 import { notFound } from "next/navigation";
+export const runtime = 'edge';
 
 interface BlogPageProps {
   params: Promise<{
