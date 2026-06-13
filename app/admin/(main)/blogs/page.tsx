@@ -3,8 +3,6 @@ import BlogList from "@/features/Admin/Blog/Table/BlogList";
 import Link from "next/link";
 import React from "react";
 
-export const runtime = 'edge';
-
 function BlogsPage() {
   return (
     <div>

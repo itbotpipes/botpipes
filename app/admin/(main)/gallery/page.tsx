@@ -4,8 +4,6 @@ import CreateGalleryDialog from "@/features/Admin/Gallery/CreateGalleryDialog";
 import GalleryList from "@/features/Admin/Gallery/Table/GalleryList";
 import React from "react";
 
-export const runtime = 'edge';
-
 function Gallery() {
   return (
     <div>

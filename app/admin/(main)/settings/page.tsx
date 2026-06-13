@@ -1,8 +1,6 @@
 import Options from "@/features/Admin/Settings/Options";
 import React from "react";
 
-export const runtime = 'edge';
-
 function SettingsPage() {
   return (
     <div>

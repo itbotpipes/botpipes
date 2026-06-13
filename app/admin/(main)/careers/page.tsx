@@ -3,8 +3,6 @@ import CareerList from "@/features/Admin/Career/Table/CareerList";
 import Link from "next/link";
 import React from "react";
 
-export const runtime = 'edge';
-
 async function CareerPage() {
   return (
     <div>

@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import FAQList from "@/features/Admin/FAQ/Table/FAQList";
 
-export const runtime = 'edge';
-
 function FAQ({}: PageProps<"/admin/faq">) {
   return (
     <div>
