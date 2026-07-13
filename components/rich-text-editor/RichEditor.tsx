@@ -90,8 +90,8 @@ const RichEditor: React.FC<RichEditorProps> = ({
     editorProps: {
       attributes: {
         class: clsx(
-     "min-h-[500px] border rounded-xl bg-white px-6 py-5 focus:outline-none",
-          "[&>h1]:text-4xl [&>h2]:text2xl [&>h3]:text-xl [&>h1,h2,h3]:font-bold",
+          "min-h-[500px] border rounded-xl bg-white px-6 py-5 focus:outline-none",
+          "[&_h1]:text-4xl [&_h1]:font-bold [&_h1]:my-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:my-3 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:my-2",
         ),
       },
     },

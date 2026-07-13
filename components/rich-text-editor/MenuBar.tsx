@@ -48,12 +48,12 @@ const MenuBar: React.FC<MenuBarProps> = ({ editor }) => {
     {
       icon: <Italic className="size-4" />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
-      pressed: editor.isActive("bold"),
+      pressed: editor.isActive("italic"),
     },
     {
       icon: <Strikethrough className="size-4" />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
-      pressed: editor.isActive("bold"),
+      pressed: editor.isActive("strike"),
     },
     {
       icon: <AlignLeft className="size-4" />,
