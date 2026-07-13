@@ -156,3 +156,112 @@ strong {
 .rich-editor > ul > li {
   margin-left: 1.25rem;
 }
+
+/* Notion-style Custom Block Styles & resets */
+.ProseMirror {
+  outline: none;
+}
+
+/* Checklist / Task List styling */
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none !important;
+  padding-left: 0.25rem !important;
+  margin: 1rem 0 !important;
+}
+
+.ProseMirror li[data-type="taskItem"] {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.ProseMirror li[data-type="taskItem"] > label {
+  user-select: none !important;
+  margin-top: 0.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ProseMirror li[data-type="taskItem"] input[type="checkbox"] {
+  cursor: pointer !important;
+  accent-color: #2eaadc !important;
+  width: 15px !important;
+  height: 15px !important;
+  margin: 0 !important;
+  background-color: #202020 !important;
+  border: 1px solid #2d2d2d !important;
+  border-radius: 4px !important;
+}
+
+.ProseMirror li[data-type="taskItem"][data-checked="true"] > div {
+  text-decoration: line-through !important;
+  color: #8c8c8c !important;
+  opacity: 0.65 !important;
+}
+
+/* Custom Callouts */
+.ProseMirror div[data-type="callout"] {
+  margin: 1.5rem 0 !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 8px !important;
+  border: 1px solid !important;
+}
+
+/* Spacer block styling */
+.ProseMirror div[data-type="spacer"] {
+  margin: 1rem 0 !important;
+}
+
+/* Tables styling inside editor */
+.ProseMirror table {
+  border-collapse: collapse !important;
+  margin: 1.5rem 0 !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+}
+
+.ProseMirror th, .ProseMirror td {
+  border: 1px solid #2d2d2d !important;
+  padding: 8px 12px !important;
+  min-width: 100px !important;
+  position: relative !important;
+}
+
+.ProseMirror th {
+  background-color: #202020 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Drag Handle hover effect styling */
+.drag-handle {
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.drag-handle:active {
+  cursor: grabbing !important;
+}
+
+/* Subtle fade in on new blocks editing */
+.ProseMirror > * {
+  animation: blockEnter 0.2s ease-out forwards;
+}
+
+@keyframes blockEnter {
+  from {
+    opacity: 0.75;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Selected block highlight */
+.ProseMirror .ProseMirror-selectednode {
+  outline: 2px solid #2eaadc !important;
+  outline-offset: 4px;
+  border-radius: 4px;
+}

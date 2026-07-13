@@ -23,7 +23,12 @@ const Schema = yup.object({
     .of(yup.object({ tag: yup.string().required("tag is required") }))
     .min(1)
     .required(),
-  content: yup.string().required("cotnent is required"),
+  content: yup.string().required("content is required"),
+  seo_title: yup.string().optional(),
+  meta_description: yup.string().optional(),
+  focus_keyword: yup.string().optional(),
+  canonical_url: yup.string().optional(),
+  is_draft: yup.boolean().default(false),
 });
 
 export type FormValues = yup.InferType<typeof Schema>;
@@ -32,12 +37,22 @@ export type FormDataType = Omit<InitialBlogRecord, "cover_image_url"> & {
     file: File | string;
     publicId?: string;
   };
+  seo_title?: string;
+  meta_description?: string;
+  focus_keyword?: string;
+  canonical_url?: string;
+  is_draft?: boolean;
 };
 type FormSubmitHandler = (data: FormDataType) => void;
 
 export function useBlogForm(
   submitHandler: FormSubmitHandler,
-  item?: BlogRecord,
+  item?: BlogRecord & {
+    seo_title?: string;
+    meta_description?: string;
+    focus_keyword?: string;
+    canonical_url?: string;
+  },
 ) {
   const [description, setDescription] = useState<JSONContent | undefined>(
     item?.content ? JSON.parse(item.content) : undefined,
@@ -54,6 +69,11 @@ export function useBlogForm(
       excerpt: item?.excerpt || "",
       tags: item?.tags.map((t) => ({ tag: t })) || [],
       cover_image_url: item?.cover_image_url.secureUrl,
+      seo_title: item?.seo_title || "",
+      meta_description: item?.meta_description || "",
+      focus_keyword: item?.focus_keyword || "",
+      canonical_url: item?.canonical_url || "",
+      is_draft: item?.is_draft || false,
     },
   });
 
@@ -73,7 +93,11 @@ export function useBlogForm(
       tags: data.tags.map((item) => item.tag),
       updated_at: new Date().toISOString(),
       sub_category_id: "",
-      is_draft: false,
+      is_draft: data.is_draft ?? false,
+      seo_title: data.seo_title || "",
+      meta_description: data.meta_description || "",
+      focus_keyword: data.focus_keyword || "",
+      canonical_url: data.canonical_url || "",
     };
 
     submitHandler(submitData);

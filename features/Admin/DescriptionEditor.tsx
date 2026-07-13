@@ -11,6 +11,9 @@ interface DescriptionEditorProps<T extends FieldValues = FieldValues> {
   control: Control<T>;
   label?: string;
   name: Path<T>;
+  notionMode?: boolean;
+  editable?: boolean;
+  onRawValueChange?: (text: string) => void;
 }
 
 const DescriptionEditor = <T extends FieldValues = FieldValues>({
@@ -19,6 +22,9 @@ const DescriptionEditor = <T extends FieldValues = FieldValues>({
   control,
   name,
   label = "Description",
+  notionMode = false,
+  editable = true,
+  onRawValueChange,
 }: DescriptionEditorProps<T>) => {
   const { field, fieldState } = useController<T>({
     control: control as unknown as Control<T>,
@@ -29,13 +35,20 @@ const DescriptionEditor = <T extends FieldValues = FieldValues>({
   return (
     <div className={clsx("", className)}>
       <div>
-        <Label htmlFor="description" className="mb-2">
-          {label}
-        </Label>
+        {label && (
+          <Label htmlFor="description" className="mb-2">
+            {label}
+          </Label>
+        )}
         <RichEditor
           defaultValue={field.value}
-          onRawValueChange={field.onChange}
+          onRawValueChange={(text) => {
+            field.onChange(text);
+            if (onRawValueChange) onRawValueChange(text);
+          }}
           onValueChange={onValueChange}
+          notionMode={notionMode}
+          editable={editable}
         />
         {fieldState.error && (
           <p className="mt-1 text-sm text-red-600">
