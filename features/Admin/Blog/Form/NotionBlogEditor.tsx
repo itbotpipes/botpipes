@@ -555,6 +555,10 @@ const NotionBlogEditor: React.FC<NotionBlogEditorProps> = ({
                     "[&_.ProseMirror]:bg-[#191919] [&_.ProseMirror]:border-none [&_.ProseMirror]:text-[#e3e3e3] [&_.ProseMirror]:px-0 [&_.ProseMirror]:py-4 [&_.ProseMirror]:min-h-[450px]"
                   )}
                 >
+                  <div className="mb-4 text-xs text-[#8c8c8c] flex items-center gap-1.5 opacity-80 select-none">
+                    <Sparkles size={12} className="text-[#2eaadc]" />
+                    <span>Tip: Type <kbd className="bg-[#2c2c2c] border border-[#3c3c3c] text-white px-1 py-0.5 rounded text-[10px] font-mono">/</kbd> to get more text options.</span>
+                  </div>
                   <DescriptionEditor
                     label=""
                     name="content"

@@ -815,7 +815,7 @@ const RichEditor: React.FC<RichEditorProps> = ({
 
       Placeholder.configure({
         placeholder: notionMode
-          ? "Press '/' for commands..."
+          ? "Type '/' to get more text options..."
           : "Start writing your blog content...",
       }),
 
